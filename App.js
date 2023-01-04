@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { torch } from 'react-native-pytorch-core';
 
 export default function App() {
+  const [tensor, _setTensor] = useState(torch.rand([2, 3]));
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{`Random tensor of shape ${tensor.shape} with data ${tensor.data()}`}</Text>
       <StatusBar style="auto" />
     </View>
   );
